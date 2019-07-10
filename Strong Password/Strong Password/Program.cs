@@ -15,6 +15,7 @@ namespace Strong_Password
              */
             minimumNumber(3, "Ab1");
             minimumNumber(11, "#HackerRank");
+            minimumNumber(4, "4700");
         }
 
         static int minimumNumber(int n, string password)
@@ -24,66 +25,91 @@ namespace Strong_Password
             string lowerCase = "abcdefghijklmnopqrstuvwxyz";
             string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string specialCharacters = "!@#$%^&*()-+";
-
+            //returning this 
             int passwordStrength = 0;
-            // length 
-            if (n >= 6)
-            {
-                passwordStrength += 1; 
-            }
+            //using these to count once and only once 
             bool specialDone = false;
             bool lowerDone = false;
             bool upperDone = false;
-            bool numbersDone = false; 
+            bool numbersDone = false;
+            //characters needed 
+            int charactersNeeded = n < 6 ? 6 - n : 0;
+            // so we need more characters if its less than 0 if equal or zero we neeed no characters length wise
 
-            foreach(char character in password)
+            foreach (char character in password)
             {
-                if(!specialDone)
+                if (specialCharacters.Contains(character))
                 {
-                    if (specialCharacters.Contains(character))
+                    if (!specialDone)
                     {
                         specialDone = true;
-                        passwordStrength += 1; 
+                        passwordStrength += 1;
                     }
                 }
-                if (!lowerDone)
+                else if (lowerCase.Contains(character))
                 {
-                    if(lowerCase.Contains(character))
+
+                    if (!lowerDone)
                     {
                         lowerDone = true;
-                        passwordStrength += 1; 
+                        passwordStrength += 1;
                     }
                 }
-                if (!upperDone)
+                else if (upperCase.Contains(character))
                 {
-                    if(upperCase.Contains(character))
+                    if (!upperDone)
                     {
                         upperDone = true;
-                        passwordStrength += 1; 
+                        passwordStrength += 1;
                     }
                 }
 
-                if (!numbersDone)
+                else if (numbers.Contains(character))
                 {
-                    if(numbers.Contains(character))
+                    if (!numbersDone)
                     {
                         numbersDone = true;
-                        passwordStrength += 1; 
+                        passwordStrength += 1;
                     }
                 }
                 if (numbersDone && upperDone && lowerDone && specialDone)
                 {
-                    break; 
+                    break;
                 }
             }
-
-            if(n < 6)
+            Console.WriteLine($"This is the passwordStrength before returning {passwordStrength}");
+            if (n < 6)
             {
-                return 6 - n;
+                if (passwordStrength == 4)
+                {
+                    Console.WriteLine($"{charactersNeeded} if block 85");
+                    return charactersNeeded;
+                } 
+                else if ( passwordStrength != 4)
+                {
+                    int makeStronger = 4 - passwordStrength;
+                    if (charactersNeeded > makeStronger)
+                    {
+                        Console.WriteLine($"{charactersNeeded} if block 93");
+                        return charactersNeeded;
+                    }
+                    else if ( charactersNeeded < makeStronger)
+                    {
+                        Console.WriteLine($"{makeStronger} else if 98");
+                        return makeStronger;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{charactersNeeded} else block 102");
+                        return makeStronger;
+                    }
+                }
+                
             }
             else
             {
-                return 5 - passwordStrength;
+                Console.WriteLine($"{4 - passwordStrength} else block 110");
+                return 4 - passwordStrength;
             }
 
             Console.WriteLine(passwordStrength);
