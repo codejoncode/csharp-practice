@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\InsertANodeAtTheTailOfALinkedList",
+    "\\PrintTheElementsOfALinkedList"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\InsertANodeAtTheTailOfALinkedList\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

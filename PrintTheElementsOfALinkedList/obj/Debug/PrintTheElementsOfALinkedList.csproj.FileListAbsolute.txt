@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\bin\Debug\PrintTheElementsOfALinkedList.exe.config
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\bin\Debug\PrintTheElementsOfALinkedList.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\bin\Debug\PrintTheElementsOfALinkedList.pdb
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\obj\Debug\PrintTheElementsOfALinkedList.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\obj\Debug\PrintTheElementsOfALinkedList.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\obj\Debug\PrintTheElementsOfALinkedList.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\PrintTheElementsOfALinkedList\obj\Debug\PrintTheElementsOfALinkedList.pdb

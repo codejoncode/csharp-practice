@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\bin\Debug\InsertANodeAtTheTailOfALinkedList.exe.config
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\bin\Debug\InsertANodeAtTheTailOfALinkedList.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\bin\Debug\InsertANodeAtTheTailOfALinkedList.pdb
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\obj\Debug\InsertANodeAtTheTailOfALinkedList.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\obj\Debug\InsertANodeAtTheTailOfALinkedList.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\obj\Debug\InsertANodeAtTheTailOfALinkedList.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\InsertANodeAtTheTailOfALinkedList\obj\Debug\InsertANodeAtTheTailOfALinkedList.pdb
