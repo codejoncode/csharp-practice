@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\InsertANodeAtTheTailOfALinkedList",
+    "\\InsertANodeAtTheTheHeadOfALinkedList",
+    "\\InsertANodeAtTheTheHeadOfALinkedList\\InsertANodeAtTheTheHeadOfALinkedList",
     "\\PrintTheElementsOfALinkedList"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\InsertANodeAtTheTheHeadOfALinkedList\\InsertANodeAtTheTheHeadOfALinkedList.sln",
   "PreviewInSolutionExplorer": false
 }
