@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\InsertANodeAtTheTailOfALinkedList",
-    "\\InsertANodeAtTheTheHeadOfALinkedList",
     "\\InsertANodeAtTheTheHeadOfALinkedList\\InsertANodeAtTheTheHeadOfALinkedList",
-    "\\PrintTheElementsOfALinkedList"
+    "\\MergeSort"
   ],
-  "SelectedNode": "\\InsertANodeAtTheTheHeadOfALinkedList\\InsertANodeAtTheTheHeadOfALinkedList.sln",
+  "SelectedNode": "\\MergeSort\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

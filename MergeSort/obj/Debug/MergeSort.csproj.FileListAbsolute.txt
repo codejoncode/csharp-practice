@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\bin\Debug\MergeSort.exe.config
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\bin\Debug\MergeSort.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\bin\Debug\MergeSort.pdb
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\obj\Debug\MergeSort.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\obj\Debug\MergeSort.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\obj\Debug\MergeSort.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\MergeSort\obj\Debug\MergeSort.pdb
