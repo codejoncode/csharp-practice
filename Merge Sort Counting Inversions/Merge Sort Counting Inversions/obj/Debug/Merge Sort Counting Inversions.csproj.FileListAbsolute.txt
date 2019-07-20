@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\bin\Debug\Merge Sort Counting Inversions.exe.config
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\bin\Debug\Merge Sort Counting Inversions.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\bin\Debug\Merge Sort Counting Inversions.pdb
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\obj\Debug\Merge Sort Counting Inversions.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\obj\Debug\Merge Sort Counting Inversions.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\obj\Debug\Merge Sort Counting Inversions.exe
+C:\Users\Jonathan\csharp\csharp-practice\csharp-practice\Merge Sort Counting Inversions\Merge Sort Counting Inversions\obj\Debug\Merge Sort Counting Inversions.pdb
