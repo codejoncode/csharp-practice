@@ -1,0 +1,15 @@
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\bin\Debug\PracticeUsingIfElse.exe.config
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\bin\Debug\PracticeUsingIfElse.exe
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\bin\Debug\PracticeUsingIfElse.pdb
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\MainWindow.g.cs
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\App.g.cs
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse_MarkupCompile.cache
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse_MarkupCompile.lref
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\MainWindow.baml
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.g.resources
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.Properties.Resources.resources
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.csproj.GenerateResource.cache
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.exe
+C:\Users\Jonathan\csharp\PracticeUsingIfElse\PracticeUsingIfElse\obj\Debug\PracticeUsingIfElse.pdb
