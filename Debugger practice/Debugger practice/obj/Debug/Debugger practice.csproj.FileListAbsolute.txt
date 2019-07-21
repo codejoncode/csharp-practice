@@ -1,0 +1,15 @@
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\bin\Debug\Debugger practice.exe.config
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\bin\Debug\Debugger practice.exe
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\bin\Debug\Debugger practice.pdb
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\MainWindow.g.cs
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\App.g.cs
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice_MarkupCompile.cache
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice_MarkupCompile.lref
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\MainWindow.baml
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.g.resources
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger_practice.Properties.Resources.resources
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.csproj.GenerateResource.cache
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.exe
+C:\Users\Jonathan\csharp\Debugger practice\Debugger practice\obj\Debug\Debugger practice.pdb
