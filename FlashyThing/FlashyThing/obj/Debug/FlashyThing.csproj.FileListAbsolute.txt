@@ -1,0 +1,10 @@
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\bin\Debug\FlashyThing.exe.config
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\bin\Debug\FlashyThing.exe
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\bin\Debug\FlashyThing.pdb
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.Form1.resources
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.Properties.Resources.resources
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.csproj.GenerateResource.cache
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.exe
+C:\Users\Jonathan\csharp\FlashyThing\FlashyThing\obj\Debug\FlashyThing.pdb
