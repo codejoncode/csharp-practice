@@ -1,0 +1,15 @@
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\bin\Debug\Save the Humans.exe.config
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\bin\Debug\Save the Humans.exe
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\bin\Debug\Save the Humans.pdb
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\MainWindow.g.cs
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\App.g.cs
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans_MarkupCompile.cache
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans_MarkupCompile.lref
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\MainWindow.baml
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.g.resources
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save_the_Humans.Properties.Resources.resources
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.csproj.GenerateResource.cache
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.exe
+C:\Users\Jonathan\csharp\Save the Humans\Save the Humans\obj\Debug\Save the Humans.pdb
