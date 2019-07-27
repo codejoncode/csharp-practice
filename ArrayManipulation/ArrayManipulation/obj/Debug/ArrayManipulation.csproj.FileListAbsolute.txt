@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\bin\Debug\ArrayManipulation.exe.config
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\bin\Debug\ArrayManipulation.exe
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\bin\Debug\ArrayManipulation.pdb
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\obj\Debug\ArrayManipulation.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\obj\Debug\ArrayManipulation.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\obj\Debug\ArrayManipulation.exe
+C:\Users\Jonathan\csharp\ArrayManipulation\ArrayManipulation\obj\Debug\ArrayManipulation.pdb
