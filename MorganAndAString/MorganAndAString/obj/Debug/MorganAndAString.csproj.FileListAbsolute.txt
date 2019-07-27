@@ -1,0 +1,7 @@
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\bin\Debug\MorganAndAString.exe.config
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\bin\Debug\MorganAndAString.exe
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\bin\Debug\MorganAndAString.pdb
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\obj\Debug\MorganAndAString.csprojAssemblyReference.cache
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\obj\Debug\MorganAndAString.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\obj\Debug\MorganAndAString.exe
+C:\Users\Jonathan\csharp\MorganAndAString\MorganAndAString\obj\Debug\MorganAndAString.pdb
