@@ -52,5 +52,20 @@ namespace ACM.BL
                 _lastName = value; 
             }
         }
+        //Add methods here 
+        
+        /// <summary>
+        /// Validates the customer data
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool Validate()
+        {
+            var isValid = true;
+
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+
+            return isValid; 
+        }
     }
 }
