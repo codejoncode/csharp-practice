@@ -8,6 +8,16 @@ namespace ACM.BL
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+
+        public Customer (int customerId)
+        {
+            CustomerId = customerId; // set the custoemrId with the constructor 
+
+        }
         /// <summary>
         /// overall this explains Encapsulation 
         /// </summary>
