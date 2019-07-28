@@ -37,7 +37,8 @@ namespace ACM.BL
 
             }
         }
-
+        //static modifier denotes that the member belongs to the class itself rather than to any specific instance
+        public static int InstanceCount { get; set; }
         //this variable is the backing field
         private string _lastName; // private access modifier  
         public string LastName
