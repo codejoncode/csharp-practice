@@ -8,7 +8,7 @@ namespace ACM.BL
 {
     public class Customer
     {
-        public Customer()
+        public Customer() : this(0)// constructor chaining default contructor calls the other constructor and the adress list is always constructed
         {
 
         }
@@ -16,6 +16,8 @@ namespace ACM.BL
         public Customer (int customerId)
         {
             CustomerId = customerId; // set the custoemrId with the constructor 
+            // create a instance of the address list so that 
+            AddressList = new List<Address>(); // without this we will return null exception error   
 
         }
         /// <summary>
@@ -23,6 +25,7 @@ namespace ACM.BL
         /// </summary>
         //short syntax  behind the scene the code is  creating the backing field. 
         /*if there is no need for logic in the getter or setter*/
+        public List<Address> AddressList { get; set; }
         public string FirstName { get; set; }
         public string EmailAddress { get; set; }
         // prop tab tab  
