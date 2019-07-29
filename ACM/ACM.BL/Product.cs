@@ -34,7 +34,7 @@ namespace ACM.BL
         /// </summary>
         /// <returns>bool</returns>
         /// 
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer() : this(0)// constructor chaining default contructor calls the other constructor and the adress list is always constructed
         {
@@ -72,7 +72,7 @@ namespace ACM.BL
         /// Validates the customer data
         /// </summary>
         /// <returns>bool</returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
