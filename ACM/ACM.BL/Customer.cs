@@ -31,7 +31,7 @@ namespace ACM.BL
         // prop tab tab  
         // any class can get the CustomerId but only this class can set it. 
         public int CustomerId { get; private set; }//propg
-      
+        public int CustomerType { get; set; }
         //no backing feild or setter no other code would change this value and we are using variables that already have backing fields
         public string FullName
         {
