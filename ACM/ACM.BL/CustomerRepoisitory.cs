@@ -25,7 +25,7 @@ namespace ACM.BL
             //a populated customer 
             if (customerId == 1)
             {
-                customer.EmailAddress = "fbaggins@hobbiton.me";
+                customer.EmailAddress = "fbaggings@hobbiton.me";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Baggins";
             }
