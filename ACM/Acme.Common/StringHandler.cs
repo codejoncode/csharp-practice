@@ -19,6 +19,8 @@ namespace Acme.Common
                     //finds a uppercase letter then inserts a space
                     if (char.IsUpper(letter))
                     {
+                        //Trim any spaces already there 
+                        result = result.Trim();
                         result += " ";
                     }
                     result += letter; 
