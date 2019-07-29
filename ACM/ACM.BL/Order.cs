@@ -8,18 +8,23 @@ namespace ACM.BL
 {
     public class Order
     {
-        public Order()
+        public Order() : this(0)
         {
 
         }
         public Order (int orderId)
         {
-            OrderId = orderId; 
+            OrderId = orderId;
+            OrderItems = new List<OrderItem>(); 
         }
+
+        public int CustomerId { get; set; }
         //DateTimeOffset tracks date time and time zone offset great for when the date can be set in different time zones
         //by keeping the time offset we can keep track of olders  10am in detriot is not the same as 10 am in texas.
         public DateTimeOffset? OrderDate { get; set; }
         public int OrderId { get; private set; }
+        public List<OrderItem> OrderItems { get; set; }
+        public int ShippingAddressId { get; set; }
 
         /// <summary>
         /// Validates the order data. 
