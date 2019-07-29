@@ -33,6 +33,7 @@ namespace ACM.BL
                 customer.EmailAddress = "fbaggings@hobbiton.me";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Baggins";
+                customer.AddressList = addressRepository.RetrieveByCustomerId(customerId).ToList();
             }
             return customer; 
         }
