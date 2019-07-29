@@ -44,6 +44,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="AddressRepository.cs" />
     <Compile Include="CustomerRepoisitory.cs" />
+    <Compile Include="EntityBase.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="OrderItem.cs" />

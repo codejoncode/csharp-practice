@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
         // constructor 
         public Product()
@@ -25,6 +25,9 @@ namespace ACM.BL
         public string ProductName { get; set; }
 
         public override string ToString() => ProductName;
+
+        
+       
 
         /// <summary>
         /// Validates the product data
