@@ -78,10 +78,5 @@ namespace ACM.BL
             return isValid; 
         }
 
-        /// <summary>
-        /// Retrieve one customer. 
-        /// </summary>
-        /// <returns>Customer</returns>
-        
     }
 }
