@@ -8,6 +8,11 @@ namespace ACM.BL
 {
     public class CustomerRepoisitory
     {
+        private AddressRepository addressRepository { get; set; }
+        public CustomerRepoisitory()
+        {
+            addressRepository = new AddressRepository(); 
+        }
         /// <summary>
         /// Retrieve one customer
         /// </summary>
