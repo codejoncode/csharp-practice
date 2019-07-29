@@ -35,7 +35,7 @@ namespace Acme.Common
             result = result.Trim();
             return result; 
         }
-        public bool IsAllUpper(string input)        
+        bool IsAllUpper(string input)        
         {
             input = input.Replace(" ", "");
             for (int i = 0; i< input.Length; i++)
