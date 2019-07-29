@@ -66,7 +66,8 @@ namespace ACM.BL
             }
         }
         //Add methods here 
-        
+        public override string ToString() => FullName;
+
         /// <summary>
         /// Validates the customer data
         /// </summary>
