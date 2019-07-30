@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Acme.Common
 {
-    public class StringHandler
+    
+    public static class StringHandler
     {
-        public string InsertSpaces(string source)
+        //  this keyword  extends the method
+        /// <summary>
+        /// Inserts spaces before each capital letter in a string 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static string InsertSpaces( this string source)
         {
             if (IsAllUpper(source))
             {
@@ -35,7 +42,7 @@ namespace Acme.Common
             result = result.Trim();
             return result; 
         }
-        bool IsAllUpper(string input)        
+        static bool IsAllUpper(string input)        
         {
             input = input.Replace(" ", "");
             for (int i = 0; i< input.Length; i++)
