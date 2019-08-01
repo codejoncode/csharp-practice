@@ -58,14 +58,20 @@ namespace ACM.BL
         {
             get
             {
-                return _lastName; 
+                return _lastName;
             }
             set
             {
-                _lastName = value; 
+                _lastName = value;
             }
         }
         //Add methods here 
+        /// <summary>
+        /// Logs the customer Id Full name and email address as well as the EntityState
+        /// </summary>
+        /// <returns></returns>
+        public string Log() =>
+            $"{CustomerId}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
         public override string ToString() => FullName;
 
         /// <summary>
