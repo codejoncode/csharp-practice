@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Acme.Common
 {
-    class LoggingService
+    public static class LoggingService
     {
+        /// <summary>
+        /// Write to file will take a List of Objects. use Object type when you do not know the type of each item. 
+        /// </summary>
+        /// <param name="itemsToLog"></param>
+        public static void WriteToFile(List<Object> itemsToLog)
+        {
+            foreach (var item in itemsToLog)
+            {
+                //Console.WriteLine(item);
+            }
+        }
     }
 }
