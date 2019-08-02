@@ -12,11 +12,12 @@ namespace Acme.Common
         /// Write to file will take a List of Objects. use Object type when you do not know the type of each item. 
         /// </summary>
         /// <param name="itemsToLog"></param>
-        public static void WriteToFile(List<Object> itemsToLog)
+        public static void WriteToFile(List<ILoggable> itemsToLog)
         {
             foreach (var item in itemsToLog)
             {
-                //Console.WriteLine(item);
+                //inheritance based polymorphism 
+                Console.WriteLine(item.Log());
             }
         }
     }
