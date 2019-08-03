@@ -49,17 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookClassTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BookTests.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GradeBook\GradeBook.csproj">
-      <Project>{40ecd33d-7697-4413-8f6a-c61b8c74a3fa}</Project>
-      <Name>GradeBook</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

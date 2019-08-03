@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GradeBook
 {
-    class Book
+    public class Book
     {
         // fields/ properties 
         List<double> Grades { get; set; }
@@ -67,6 +67,26 @@ namespace GradeBook
             }
 
             return results; 
+        }
+
+        public void ShowStatistics ()
+        {
+            var minimum = 100.0;
+            var maximum = 0.0;
+            var toBecomeAverage = 0.0;
+
+            foreach(var grade in Grades)
+            {
+                minimum = Math.Min(grade, minimum);
+                maximum = Math.Max(grade, maximum);
+                toBecomeAverage += grade; 
+            }
+
+            toBecomeAverage /= Grades.Count;
+
+            Console.WriteLine($"The minimum grade : {minimum}\n The maximum grade : {maximum}\n The average grade : {toBecomeAverage}");
+
+
         }
     }
 }
