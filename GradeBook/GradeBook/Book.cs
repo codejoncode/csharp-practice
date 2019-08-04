@@ -68,9 +68,18 @@ namespace GradeBook
 
             return Math.Round(results, 2); 
         }
-
-        public void ShowStatistics ()
+        /// <summary>
+        /// ShowStatistics will print out the stats but will also 
+        /// return an array that has the minimum in the first slot maximum in the second 
+        /// and average in the third slot. 
+        /// </summary>
+        /// <returns></returns>
+        public double[] ShowStatistics ()
         {
+            if(Grades.Count == 0)
+            {
+                return new double[] { 0, 0, 0 };
+            }
             var minimum = 100.0;
             var maximum = 0.0;
             var toBecomeAverage = 0.0;
@@ -85,6 +94,8 @@ namespace GradeBook
             toBecomeAverage /= Grades.Count;
 
             Console.WriteLine($"The minimum grade : {minimum}\n The maximum grade : {maximum}\n The average grade : {toBecomeAverage}");
+            var returning = new double[] { minimum, maximum, Math.Round(toBecomeAverage,2) };
+            return returning; 
 
 
         }
