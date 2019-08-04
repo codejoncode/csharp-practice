@@ -16,7 +16,7 @@ namespace GradeBook
         {
             //without setting Grades  Grades will be a null value and produce an error when trying to add to it. 
             Grades = new List<double>();
-            this.Name = "No Name provided";
+            this.Name = "No Name Provided";
 
         }
 
@@ -98,7 +98,10 @@ namespace GradeBook
             var returning = new double[] { minimum, maximum, Math.Round(toBecomeAverage,2) };
             return returning; 
         }
-
+        /// <summary>
+        /// Updates the name  property on Book instance. 
+        /// </summary>
+        /// <param name="name"></param>
         public void UpdateName(string name)
         {
             if (name.Length > 0)

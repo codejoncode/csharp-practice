@@ -65,5 +65,36 @@ namespace XUnitTestProject1
             //Assert 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void UpdateNameTest()
+        {
+            //Arrange
+            Book book = new Book("Updated Book");
+            //Act
+            string expected = "Updated Book";
+            string actual = book.Name;
+            //Assert
+            Assert.Equal(expected, actual);
+
+            Book book2 = new Book();
+            //Act 
+            expected = "No Name Provided";
+            actual = book2.Name;
+            //Assert
+            Assert.Equal(expected, actual);
+
+            book.UpdateName("Changed the book again.");
+
+            expected = "Changed the book again.";
+            actual = book.Name;
+            //Assert
+            Assert.Equal(expected, actual);
+            book.UpdateName("");// no update should occur 
+            //Assert
+            Assert.Equal(expected, actual);
+            Assert.NotEqual("", actual);
+
+        }
     }
 }
