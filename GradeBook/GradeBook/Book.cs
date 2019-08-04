@@ -84,11 +84,12 @@ namespace GradeBook
         /// Compute the Statistics for the Book instance. usually ran after adding to the 
         /// Book but can be called on its own. 
         /// </summary>
-        public void ComputeStatistics()
+        /// <returns>Statistics object</returns>
+        public Statistics ComputeStatistics()
         {
             if(Grades.Count == 0)
             {
-                return; 
+                return new Statistics();  
             }
             var minimum = 100.0;
             var maximum = 0.0;
@@ -106,6 +107,8 @@ namespace GradeBook
             this.Maximum = maximum;
             this.Minimum = minimum;
             this.Average = Math.Round(toBecomeAverage, 2);
+            Statistics returning = new Statistics(this.Minimum, this.Maximum, this.Average);
+            return returning; 
         }
         /// <summary>
         /// ShowStatistics will print out the stats but will also 
@@ -114,12 +117,13 @@ namespace GradeBook
         /// Console logs and returns. 
         /// </summary>
         /// <returns>array of length 3 with doubles minimum maximum average (in that order)</returns>
-        public double[] ShowStatistics ()
+        public Statistics ShowStatistics ()
         {
-            this.ComputeStatistics();
-
+            Statistics returning = this.ComputeStatistics();
+            
             Console.WriteLine($"The minimum grade : {this.Minimum}\n The maximum grade : {this.Maximum}\n The average grade : {this.Average}");
-            var returning = new double[] { this.Minimum, this.Maximum, this.Average };
+            //var returning = new double[] { this.Minimum, this.Maximum, this.Average };
+            
             return returning; 
         }
         /// <summary>

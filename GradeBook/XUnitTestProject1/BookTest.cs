@@ -44,14 +44,16 @@ namespace XUnitTestProject1
             book.AddGrade(6.2);
             book.AddGrade(7.5);
 
-            var expected = new double[] { 5.6, 7.5, 6.43 };
+            var expected = new Statistics( 5.6, 7.5, 6.43 );
             var actual = book.ShowStatistics();
             //var minimum = actual[0];
             //var maximum = actual[1];
             //var average = actual[2];
             //Assert 
             //Assert.Equal(expected, actual);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected.Minimum, actual.Minimum);
+            Assert.Equal(expected.Maximum, actual.Maximum);
+            Assert.Equal(expected.Average, actual.Average);
         }
 
         [Fact]
@@ -60,10 +62,12 @@ namespace XUnitTestProject1
             //arrange 
             Book book = new Book();
             //act
-            var expected = new double[] { 0, 0,0};
+            var expected = new Statistics( 0, 0,0);
             var actual = book.ShowStatistics();
             //Assert 
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected.Minimum, actual.Minimum);
+            Assert.Equal(expected.Maximum, actual.Maximum);
+            Assert.Equal(expected.Average, actual.Average);
         }
 
         [Fact]
