@@ -10,20 +10,23 @@ namespace GradeBook
         List<double> Grades { get; set; }
         public string Name { get; private set; }
 
+        public double Minimum { get; private set; }
+        public double Maximum { get; private set; }
+        public double Average { get; private set; }
 
         //Constructor 
-        public Book ()
+        public Book () : this("No Name Provided")
         {
-            //without setting Grades  Grades will be a null value and produce an error when trying to add to it. 
-            Grades = new List<double>();
-            this.Name = "No Name Provided";
 
         }
 
         public Book ( string name)
         {
             Grades = new List<double>();
-            this.Name = name; 
+            this.Name = name;
+            this.Minimum = 0.0;
+            this.Maximum = 0.0;
+            this.Average = 0.0;
         }
         //Methods 
         /// <summary>
@@ -35,6 +38,7 @@ namespace GradeBook
             if (grade >= 0 && grade <= 100)
             {
                 Grades.Add(grade);
+                this.ComputeStatistics();
             } 
             else
             {
@@ -76,6 +80,29 @@ namespace GradeBook
             }
 
             return Math.Round(results, 2); 
+        }
+        /// <summary>
+        /// Compute the Statistics for the Book instance. usually ran after adding to the 
+        /// Book but can be called on its own. 
+        /// </summary>
+        public void ComputeStatistics()
+        {
+            var minimum = 100.0;
+            var maximum = 0.0;
+            var toBecomeAverage = 0.0;
+
+            foreach (var grade in Grades)
+            {
+                minimum = Math.Min(grade, minimum);
+                maximum = Math.Max(grade, maximum);
+                toBecomeAverage += grade;
+            }
+
+            toBecomeAverage /= Grades.Count;
+
+            this.Maximum = maximum;
+            this.Minimum = minimum;
+            this.Average = Math.Round(toBecomeAverage, 2);
         }
         /// <summary>
         /// ShowStatistics will print out the stats but will also 

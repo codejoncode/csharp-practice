@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBook", "GradeBook\Grad
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GradeBook.Tests", "GradeBook.Tests", "{8E4717C8-F306-47D1-B729-AECA8616B80D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{CB382668-B21B-4691-9F10-D5DF19EAEE5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBookTests", "XUnitTestProject1\GradeBookTests.csproj", "{CB382668-B21B-4691-9F10-D5DF19EAEE5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
