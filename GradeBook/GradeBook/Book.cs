@@ -41,7 +41,12 @@ namespace GradeBook
                 Console.WriteLine($"The value {grade} does not meet the requirements  0 - 100 inclusive");
             }
         }
-
+        /// <summary>
+        /// Access the grade based off the assignment number. 
+        /// Will subtract one from number provided so 1 = 0 index. 
+        /// </summary>
+        /// <param name="assignmentNumber"></param>
+        /// <returns>double</returns>
         public double AccessGrade(int assignmentNumber)
         {
             //take the assignment number and minus it by one.  
@@ -53,7 +58,10 @@ namespace GradeBook
             Console.WriteLine("The assignment could not be found. Assignments are order 1 to the max number of assignments");
             return -100;
         }
-
+        /// <summary>
+        /// Compute the average grade using the Grades List<double> property.
+        /// </summary>
+        /// <returns>double rounded to two decimal places</returns>
         public double ComputeAverage()
         {
             double results = 0.0;

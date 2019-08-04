@@ -94,7 +94,6 @@ namespace XUnitTestProject1
             //Assert
             Assert.Equal(expected, actual);
             Assert.NotEqual("", actual);
-
         }
     }
 }
