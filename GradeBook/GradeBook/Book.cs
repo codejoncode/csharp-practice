@@ -66,7 +66,7 @@ namespace GradeBook
                 results /= Grades.Count;
             }
 
-            return results; 
+            return Math.Round(results, 2); 
         }
 
         public void ShowStatistics ()
