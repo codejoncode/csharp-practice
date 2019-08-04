@@ -38,7 +38,6 @@ namespace GradeBook
             if (grade >= 0 && grade <= 100)
             {
                 Grades.Add(grade);
-                this.ComputeStatistics();
             } 
             else
             {
@@ -87,6 +86,10 @@ namespace GradeBook
         /// </summary>
         public void ComputeStatistics()
         {
+            if(Grades.Count == 0)
+            {
+                return; 
+            }
             var minimum = 100.0;
             var maximum = 0.0;
             var toBecomeAverage = 0.0;
@@ -107,30 +110,16 @@ namespace GradeBook
         /// <summary>
         /// ShowStatistics will print out the stats but will also 
         /// return an array that has the minimum in the first slot maximum in the second 
-        /// and average in the third slot. 
+        /// and average in the third slot. Calls ComputeStatistics whill does the calculations. 
+        /// Console logs and returns. 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>array of length 3 with doubles minimum maximum average (in that order)</returns>
         public double[] ShowStatistics ()
         {
-            if(Grades.Count == 0)
-            {
-                return new double[] { 0, 0, 0 };
-            }
-            var minimum = 100.0;
-            var maximum = 0.0;
-            var toBecomeAverage = 0.0;
+            this.ComputeStatistics();
 
-            foreach(var grade in Grades)
-            {
-                minimum = Math.Min(grade, minimum);
-                maximum = Math.Max(grade, maximum);
-                toBecomeAverage += grade; 
-            }
-
-            toBecomeAverage /= Grades.Count;
-
-            Console.WriteLine($"The minimum grade : {minimum}\n The maximum grade : {maximum}\n The average grade : {toBecomeAverage}");
-            var returning = new double[] { minimum, maximum, Math.Round(toBecomeAverage,2) };
+            Console.WriteLine($"The minimum grade : {this.Minimum}\n The maximum grade : {this.Maximum}\n The average grade : {this.Average}");
+            var returning = new double[] { this.Minimum, this.Maximum, this.Average };
             return returning; 
         }
         /// <summary>
