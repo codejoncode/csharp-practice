@@ -4,7 +4,7 @@ using Xunit;
 
 namespace XUnitTestProject1
 {
-    public class BookstatTest
+    public class BookTest
     {
         [Fact]
         public void ComputeAverageTest()
@@ -15,7 +15,7 @@ namespace XUnitTestProject1
             book.AddGrade(5.6);
             book.AddGrade(6.2);
             book.AddGrade(7.5);
-
+            // act 
             var expected = 6.43;
             var actual = book.ComputeAverage();
             //Assert 

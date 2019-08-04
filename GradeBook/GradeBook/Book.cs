@@ -8,7 +8,7 @@ namespace GradeBook
     {
         // fields/ properties 
         List<double> Grades { get; set; }
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
 
         //Constructor 
@@ -16,6 +16,7 @@ namespace GradeBook
         {
             //without setting Grades  Grades will be a null value and produce an error when trying to add to it. 
             Grades = new List<double>();
+            this.Name = "No Name provided";
 
         }
 
@@ -96,8 +97,14 @@ namespace GradeBook
             Console.WriteLine($"The minimum grade : {minimum}\n The maximum grade : {maximum}\n The average grade : {toBecomeAverage}");
             var returning = new double[] { minimum, maximum, Math.Round(toBecomeAverage,2) };
             return returning; 
+        }
 
-
+        public void UpdateName(string name)
+        {
+            if (name.Length > 0)
+            {
+                this.Name = name; 
+            }
         }
     }
 }
