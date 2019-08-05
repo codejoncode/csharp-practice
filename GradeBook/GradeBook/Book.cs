@@ -13,6 +13,8 @@ namespace GradeBook
         public double Minimum { get; private set; }
         public double Maximum { get; private set; }
         public double Average { get; private set; }
+        public char Letter { get; private set; }
+
 
         //Constructor 
         public Book () : this("No Name Provided")
@@ -27,6 +29,7 @@ namespace GradeBook
             this.Minimum = 0.0;
             this.Maximum = 0.0;
             this.Average = 0.0;
+            this.Letter = 'A';
         }
         //Methods 
         /// <summary>
@@ -107,7 +110,27 @@ namespace GradeBook
             this.Maximum = maximum;
             this.Minimum = minimum;
             this.Average = Math.Round(toBecomeAverage, 2);
-            Statistics returning = new Statistics(this.Minimum, this.Maximum, this.Average);
+
+            switch(this.Average)
+            {
+                case var d when d >= 90.0:
+                    this.Letter = 'A';
+                    break;
+                case var d when d >= 80.0:
+                    this.Letter = 'B';
+                    break;
+                case var d when d >= 70.0:
+                    this.Letter = 'C';
+                    break;
+                case var d when d >= 60.0:
+                    this.Letter = 'D';
+                    break;
+                default:
+                    this.Letter = 'F';
+                    break;
+            }
+
+            Statistics returning = new Statistics(this.Minimum, this.Maximum, this.Average, this.Letter);
             return returning; 
         }
         /// <summary>
@@ -121,7 +144,7 @@ namespace GradeBook
         {
             Statistics returning = this.ComputeStatistics();
             
-            Console.WriteLine($"The minimum grade : {this.Minimum}\n The maximum grade : {this.Maximum}\n The average grade : {this.Average}");
+            Console.WriteLine($"The minimum grade : {this.Minimum}\n The maximum grade : {this.Maximum}\n The average grade : {this.Average}\n The letter is {this.Letter}");
             //var returning = new double[] { this.Minimum, this.Maximum, this.Average };
             
             return returning; 
