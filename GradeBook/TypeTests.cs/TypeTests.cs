@@ -4,6 +4,7 @@ using Xunit;
 
 namespace TypeTests.cs
 {
+   
     public class UnitTest1
     {
         [Fact]
@@ -19,7 +20,7 @@ namespace TypeTests.cs
             //assert 
             Assert.Equal(book1Name, book1.Name);
             Assert.Equal(book2Name, book2.Name);
-
+            
         }
 
         private Book GetBook(string name)
@@ -136,6 +137,32 @@ namespace TypeTests.cs
         {
             x = 42;
         }
+       
+
+        [Fact]
+        public void StringsBehaveLikeValuetypes()
+        {
+            //arrange 
+            string name = "Scott";
+            //act 
+            string upper = MakeUppercase(name);
+            //assert 
+            Assert.NotEqual("SCOTT", name);
+            Assert.Equal("SCOTT", upper);
+            MakeUppercase(ref name);
+            Assert.Equal("SCOTT", name);
+        }
+
+        private string MakeUppercase(string parameter)
+        {
+            return parameter.ToUpper();
+        }
+
+        private void MakeUppercase(ref string parameter)
+        {
+            parameter = parameter.ToUpper();
+        }
+
 
         [Fact]
         public void Test1()
