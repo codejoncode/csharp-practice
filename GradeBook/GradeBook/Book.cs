@@ -184,26 +184,7 @@ namespace GradeBook
                     AddGrade(0);
                     break;
             }
-            if (letter == 'A')
-            {
-                AddGrade(90);
-            }
-            else if (letter == 'B')
-            {
-                AddGrade(80);
-            }
-            else if (letter == 'C')
-            {
-                AddGrade(70);
-            }
-            else if ( letter == 'D')
-            {
-                AddGrade(60);
-            }
-            else if (letter == 'F')
-            {
-                AddGrade(50);
-            }
+            
         }
     }
 }
