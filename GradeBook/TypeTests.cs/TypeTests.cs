@@ -80,6 +80,10 @@ namespace TypeTests.cs
         {
             book = new Book(name);
         }
+        private void GetBookSetName(out Object book, string name)
+        {
+            book = new Book(name);
+        }
 
         [Fact]
         public void  CSharpCanPassByReference()
@@ -88,10 +92,51 @@ namespace TypeTests.cs
             var book1 = GetBook("Book 1");
             //act 
             GetBookSetName(ref book1, "New Name");
+            //GetBookSetName(out book1, "New Name");
             //assert 
             Assert.Equal("New Name", book1.Name);
 
         }
+        [Fact]
+        public void CSharpCanPassByValue()
+        {
+            //arrange 
+            var x = GetInt();
+            //act 
+            //assert 
+            Assert.Equal(3, x);
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        [Fact]
+        public void ValueTypesAlsoPassByValue()
+        {
+            //arrange 
+            var x = GetInt();
+            //act 
+            SetInt(x);
+            //assert 
+            Assert.NotEqual(42, x);
+            Assert.Equal(3, x);
+            SetInt(ref x);
+            Assert.Equal(42, x);
+
+        }
+
+        private void SetInt(int x)
+        {
+            x = 42;
+        }
+
+        private void SetInt(ref int x)
+        {
+            x = 42;
+        }
+
         [Fact]
         public void Test1()
         {
