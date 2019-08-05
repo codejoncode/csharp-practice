@@ -20,6 +20,7 @@ namespace XUnitTestProject1
             var actual = book.ComputeAverage();
             //Assert 
             Assert.Equal(expected, actual);
+            Assert.Equal('F', book.Letter);
         }
 
         [Fact]
