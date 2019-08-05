@@ -77,7 +77,7 @@ namespace GradeBook
             {
                 results /= Grades.Count;
             }
-
+            
             return Math.Round(results, 2); 
         }
         /// <summary>
@@ -135,6 +135,74 @@ namespace GradeBook
             if (name.Length > 0)
             {
                 this.Name = name; 
+            }
+        }
+
+        public void AddLetterGrade(char letter)
+        {
+            switch(letter)
+            {
+                case 'a':
+                    letter = 'A';
+                    break;
+                case 'b':
+                    letter = 'B';
+                    break;
+                case 'c':
+                    letter = 'C';
+                    break;
+                case 'd':
+                    letter = 'D';
+                    break;
+                case 'f':
+                    letter = 'F';
+                    break;
+                default:
+                    Console.WriteLine($"{letter} is not an valid choice");
+                    break;
+            }
+
+            switch(letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(70);
+                    break;
+                case 'D':
+                    AddGrade(60);
+                    break;
+                case 'F':
+                    AddGrade(50);
+                    break;
+                default:
+                    Console.WriteLine("Unable to determine what grade to add");
+                    AddGrade(0);
+                    break;
+            }
+            if (letter == 'A')
+            {
+                AddGrade(90);
+            }
+            else if (letter == 'B')
+            {
+                AddGrade(80);
+            }
+            else if (letter == 'C')
+            {
+                AddGrade(70);
+            }
+            else if ( letter == 'D')
+            {
+                AddGrade(60);
+            }
+            else if (letter == 'F')
+            {
+                AddGrade(50);
             }
         }
     }
