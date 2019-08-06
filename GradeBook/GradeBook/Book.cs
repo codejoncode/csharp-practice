@@ -15,6 +15,12 @@ namespace GradeBook
         public double Average { get; private set; }
         public char Letter { get; private set; }
 
+        //normally put delegate in a seperate file 
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+        // Event 
+        public event GradeAddedDelegate GradeAdded; 
+
 
         //Constructor 
         public Book () : this("No Name Provided")
@@ -41,6 +47,11 @@ namespace GradeBook
             if (grade >= 0 && grade <= 100)
             {
                 Grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    //object refernce is the sender
+                    GradeAdded(this, new EventArgs());
+                }
             } 
             else
             {

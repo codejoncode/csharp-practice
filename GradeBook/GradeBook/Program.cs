@@ -5,12 +5,20 @@ namespace GradeBook
 {
     class Program
     {
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
+        }
         static void Main(string[] args)
         {
 
             //List<double> grades = new List<double>();
             // var grades = new List<double>();
             Book book = new Book();
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
             
 
             var grades = new List<double>() {89.1, 90.5, 77.5};
@@ -56,10 +64,7 @@ namespace GradeBook
                 }
             }
             book.ShowStatistics();
-            
-            
-
-            
+    
         }
     }
 }
