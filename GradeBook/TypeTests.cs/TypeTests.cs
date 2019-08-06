@@ -7,6 +7,7 @@ namespace TypeTests.cs
    
     public class TypeTests
     {
+        int count = 0; 
 
         public delegate string WriteLogDelegate(string logMessage);
         /// <summary>
@@ -16,18 +17,29 @@ namespace TypeTests.cs
         public void WriteLogDelegateCanPointToMethod()
         {
             //arrange
-            WriteLogDelegate log;
+            //WriteLogDelegate log;
 
-            log = new WriteLogDelegate(ReturnMessage);
+            //log = ReturnMessage;
+            //can also concatenate other methods   with += 
+            WriteLogDelegate log = ReturnMessage;
+            log += ReturnMessage;  // using the same method but it could be something different. 
+            log += IncrementCount;
 
             //act
             var result = log("Hello!");
             //assert
-            Assert.Equal("Hello!", result);
-        }
+            //Assert.Equal("Hello!", result);
+            Assert.Equal(3, count);
 
+        }
+        string IncrementCount(string message)
+        {
+            count += 1;
+            return message.ToLower();
+        }
         string ReturnMessage(string message)
         {
+            count += 1; 
             return message; 
         }
 
