@@ -22,12 +22,21 @@ namespace GradeBook
             while(true)
             {
                 var input = Console.ReadLine();
-                if (input.Equals('q'))
+                double grade; 
+                if ("q".Equals(input))
                 {
                     Console.WriteLine("Quitting the program");
                     break; 
                 }
-                var grade = double.Parse(input);
+                try
+                {
+                    grade = double.Parse(input);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine($"{input} is not a double");
+                    continue;
+                }
                 book.AddGrade(grade);
             }
             book.ShowStatistics();

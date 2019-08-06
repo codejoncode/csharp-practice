@@ -70,19 +70,8 @@ namespace GradeBook
         /// <returns>double rounded to two decimal places</returns>
         public double ComputeAverage()
         {
-            //double results = 0.0;
-            //foreach(var grade in Grades)
-            //{
-            //    results += grade; 
-            //}
-
-            //if(results > 0)
-            //{
-            //    results /= Grades.Count;
-            //}
-            //return Math.Round(results, 2); 
-            Statistics info = ComputeStatistics();
-            return this.Average;
+            _ = ComputeStatistics();
+            return Average;
             
         }
         /// <summary>
