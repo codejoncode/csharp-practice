@@ -37,7 +37,23 @@ namespace GradeBook
                     Console.WriteLine($"{input} is not a double");
                     continue;
                 }
-                book.AddGrade(grade);
+
+                try
+                {
+                    book.AddGrade(grade);
+
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    continue; 
+                }
+                // piece of code you want to execute 
+                finally
+                {
+                    // also add this  \ close a file or clean things up when there has been an exception. 
+                    Console.WriteLine("**");
+                }
             }
             book.ShowStatistics();
             

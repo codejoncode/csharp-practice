@@ -44,7 +44,7 @@ namespace GradeBook
             } 
             else
             {
-                Console.WriteLine($"The value {grade} does not meet the requirements  0 - 100 inclusive");
+                throw new ArgumentException($"Invalid {nameof(grade)} {grade} does not meet the requirements  0 - 100 inclusive");
             }
         }
         /// <summary>
@@ -61,8 +61,7 @@ namespace GradeBook
                 return Grades[assignmentNumber - 1];
             }
 
-            Console.WriteLine("The assignment could not be found. Assignments are order 1 to the max number of assignments");
-            return -100;
+            throw new ArgumentException($"Invalid {nameof(assignmentNumber)} {assignmentNumber} does not exist in the grade list");
         }
         /// <summary>
         /// Compute the average grade using the Grades List<double> property.
@@ -152,7 +151,7 @@ namespace GradeBook
             }
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch(letter)
             {
@@ -172,8 +171,7 @@ namespace GradeBook
                     letter = 'F';
                     break;
                 default:
-                    Console.WriteLine($"{letter} is not an valid choice");
-                    break;
+                    throw new ArgumentException($"Invalid {nameof(letter)} {letter} is not an valid choice");
             }
 
             switch(letter)
@@ -194,9 +192,7 @@ namespace GradeBook
                     AddGrade(50);
                     break;
                 default:
-                    Console.WriteLine("Unable to determine what grade to add");
-                    AddGrade(0);
-                    break;
+                    throw new ArgumentException($"Invalid {nameof(letter)} {letter} is not an valid choice");
             }
             
         }

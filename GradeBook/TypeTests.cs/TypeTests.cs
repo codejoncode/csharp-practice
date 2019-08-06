@@ -5,8 +5,32 @@ using Xunit;
 namespace TypeTests.cs
 {
    
-    public class UnitTest1
+    public class TypeTests
     {
+
+        public delegate string WriteLogDelegate(string logMessage);
+        /// <summary>
+        /// This will work with delegates
+        /// </summary>
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            //arrange
+            WriteLogDelegate log;
+
+            log = new WriteLogDelegate(ReturnMessage);
+
+            //act
+            var result = log("Hello!");
+            //assert
+            Assert.Equal("Hello!", result);
+        }
+
+        string ReturnMessage(string message)
+        {
+            return message; 
+        }
+
         [Fact]
         public void GetBookReturnsDifferentObjects()
         {
