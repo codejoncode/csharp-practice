@@ -70,18 +70,20 @@ namespace GradeBook
         /// <returns>double rounded to two decimal places</returns>
         public double ComputeAverage()
         {
-            double results = 0.0;
-            foreach(var grade in Grades)
-            {
-                results += grade; 
-            }
+            //double results = 0.0;
+            //foreach(var grade in Grades)
+            //{
+            //    results += grade; 
+            //}
 
-            if(results > 0)
-            {
-                results /= Grades.Count;
-            }
+            //if(results > 0)
+            //{
+            //    results /= Grades.Count;
+            //}
+            //return Math.Round(results, 2); 
+            Statistics info = ComputeStatistics();
+            return this.Average;
             
-            return Math.Round(results, 2); 
         }
         /// <summary>
         /// Compute the Statistics for the Book instance. usually ran after adding to the 

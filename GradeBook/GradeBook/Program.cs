@@ -14,8 +14,20 @@ namespace GradeBook
             
 
             var grades = new List<double>() {89.1, 90.5, 77.5};
-            foreach(var grade in grades)
+            //foreach(var grade in grades)
+            //{
+            //    book.AddGrade(grade);
+            //}
+            Console.WriteLine("Input a double  0.0 or greater using a decimal point or the letter q to quit");
+            while(true)
             {
+                var input = Console.ReadLine();
+                if (input.Equals('q'))
+                {
+                    Console.WriteLine("Quitting the program");
+                    break; 
+                }
+                var grade = double.Parse(input);
                 book.AddGrade(grade);
             }
             book.ShowStatistics();
