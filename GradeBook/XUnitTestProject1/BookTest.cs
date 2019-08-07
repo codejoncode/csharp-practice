@@ -10,7 +10,7 @@ namespace XUnitTestProject1
         public void ComputeAverageTest()
         {
             // arrange 
-            Book book = new Book();
+            InMemoryBook book = new InMemoryBook();
             //Act 
             book.AddGrade(5.6);
             book.AddGrade(6.2);
@@ -27,7 +27,7 @@ namespace XUnitTestProject1
         public void ComputeAverageTestAgainstZeroLengthListTest()
         {
             //arrange 
-            Book book = new Book();
+            InMemoryBook book = new InMemoryBook();
             //act
             var expected = 0.0;
             var actual = book.ComputeAverage();
@@ -39,14 +39,14 @@ namespace XUnitTestProject1
         public void ShowStaticsTest()
         {
             // arrange 
-            Book book = new Book();
+            InMemoryBook book = new InMemoryBook();
             //Act 
             book.AddGrade(5.6);
             book.AddGrade(6.2);
             book.AddGrade(7.5);
 
             var expected = new Statistics( 5.6, 7.5, 6.43, 'F' );
-            var actual = book.ShowStatistics();
+            var actual = book.GetStatistics();
             //var minimum = actual[0];
             //var maximum = actual[1];
             //var average = actual[2];
@@ -61,10 +61,10 @@ namespace XUnitTestProject1
         public void ShowStaticsAgainstZeroLengthListTest()
         {
             //arrange 
-            Book book = new Book();
+            InMemoryBook book = new InMemoryBook();
             //act
-            var expected = new Statistics( 0, 0,0, 'A');
-            var actual = book.ShowStatistics();
+            var expected = new Statistics( 100.0, 0,0, 'A');
+            var actual = book.GetStatistics();
             //Assert 
             Assert.Equal(expected.Minimum, actual.Minimum);
             Assert.Equal(expected.Maximum, actual.Maximum);
@@ -75,14 +75,14 @@ namespace XUnitTestProject1
         public void UpdateNameTest()
         {
             //Arrange
-            Book book = new Book("Updated Book");
+            InMemoryBook book = new InMemoryBook("Updated Book");
             //Act
             string expected = "Updated Book";
             string actual = book.Name;
             //Assert
             Assert.Equal(expected, actual);
 
-            Book book2 = new Book();
+            InMemoryBook book2 = new InMemoryBook();
             //Act 
             expected = "No Name Provided";
             actual = book2.Name;
