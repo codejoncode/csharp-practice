@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace CountriesREader
 {
@@ -11,21 +12,20 @@ namespace CountriesREader
             this._csvFilePath = csvFilePath;
         }
 
-        public Country[] ReadFirstNCountries(int nCountries)
+        public List<Country> ReadFirstAllCountries()
         {
-            Country[] countries = new Country[nCountries];
+            List<Country> countries = new List<Country>();
             // can read text files 
             using (StreamReader sr = new StreamReader(_csvFilePath))// makes sure StreamReader is disposed of when we are done. 
             {
                 //read header line 
                 sr.ReadLine();
-
-                for ( int i = 0; i < nCountries; i++)
+                string csvLine;
+                //read the next line;
+                while ((csvLine = sr.ReadLine()) != null)
                 {
-                    //read the next line
-                    string csvLine = sr.ReadLine();
                     // Parse the line to turn it into a Country instance
-                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(ReadCountryFromCsvLine(csvLine));
                 }
             }
 

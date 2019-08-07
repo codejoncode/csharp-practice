@@ -24,7 +24,6 @@ namespace CountriesREader
             //work out what rounding accuracy we need if we are to round to 
             // 4 significant figures 
             int accuracy = Math.Max((int)(GetHighestPowerofTen(population) / 10_0001), 1);
-
             // now do the rounding 
             return RoundToNearest(population, accuracy);
         }

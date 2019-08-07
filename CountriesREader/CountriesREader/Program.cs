@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CountriesREader
 {
@@ -10,7 +11,7 @@ namespace CountriesREader
             string filePath = @"C:\users\Jonathan\csharp\csharp-practice\csharp-practice\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
-            Country[] countries = reader.ReadFirstNCountries(10);
+            List<Country> countries = reader.ReadFirstAllCountries();
 
             foreach (Country country in countries)
             {
