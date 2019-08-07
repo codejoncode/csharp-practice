@@ -7,7 +7,7 @@ namespace CountriesREader
         static void Main(string[] args)
         {
             //@ causes the string literal causes the escape sequence to be ignored
-            string filePath = @"C:\users\Jonathan\csharp\csharp-practice\csharp-practice\CountriesREader\Pop by Largest Final.csv";
+            string filePath = @"C:\users\Jonathan\csharp\csharp-practice\csharp-practice\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
 
             Country[] countries = reader.ReadFirstNCountries(10);

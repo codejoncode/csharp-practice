@@ -15,7 +15,7 @@ namespace CountriesREader
         {
             Country[] countries = new Country[nCountries];
             // can read text files 
-            using (StreamReader sr = new StreamReader(_csvFilePath))
+            using (StreamReader sr = new StreamReader(_csvFilePath))// makes sure StreamReader is disposed of when we are done. 
             {
                 //read header line 
                 sr.ReadLine();
