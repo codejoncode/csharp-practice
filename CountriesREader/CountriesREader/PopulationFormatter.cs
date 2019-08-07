@@ -15,7 +15,7 @@ namespace CountriesREader
 
             int popRounded = RoundPopulation4(population);
 
-            return $"{popRounded: ### ### ### ###}".Trim();
+            return $"{popRounded:### ### ### ###}".Trim();
         }
 
         //Rounds the population to 4 significant figures 

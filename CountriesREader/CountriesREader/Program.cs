@@ -14,6 +14,7 @@ namespace CountriesREader
 
             foreach (Country country in countries)
             {
+                //right justifies at 15 characters so they line up nicely  = PadLeft(15)
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
             }
         }
