@@ -21,7 +21,31 @@ namespace CountriesREader
                 //right justifies at 15 characters so they line up nicely  = PadLeft(15)
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
             }
+
+            Country norway = new Country("Norway", "NOR", "Europe", 5_282_223);
+            Country finland = new Country("Finland", "FIN", "Europe", 5_511_303);
             Console.WriteLine($"{countries.Count} countries");
+            Dictionary<string, Country> countries2 = new Dictionary<string, Country>();
+            // initializer
+            var countries3 = new Dictionary<string, Country>
+            {
+                { "NOR", norway },
+                { "FIN", finland }
+            };
+            countries2.Add(norway.Code, norway);
+            countries2.Add(finland.Code, finland);
+
+            Country selectedCountry = countries3["NOR"];
+            //var is KeyValuePair<string, Country>
+            foreach(var country in countries3)
+            {
+                Console.WriteLine(country.Value.Name);
+            }
+
+            foreach (var country in countries3.Values)
+            {
+                Console.WriteLine(country.Name);
+            }
         }
     }
 }
