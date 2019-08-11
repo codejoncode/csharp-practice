@@ -1,4 +1,7 @@
-﻿namespace CountriesREader
+﻿using System;
+using System.Collections.Generic;
+
+namespace CountriesREader
 {
     class Country
     {
@@ -13,6 +16,11 @@
             this.Code = code;
             this.Region = region;
             this.Population = population;
+        }
+
+        internal IEnumerable<Country> Take(int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
