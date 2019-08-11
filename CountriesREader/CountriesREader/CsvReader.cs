@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CountriesREader
 {
@@ -69,6 +70,24 @@ namespace CountriesREader
             //TryParse leaves population= 0 if can't parse 
             int.TryParse(popText, out int population);
             return new Country(name, code, region, population);
+        }
+        public void RemoveCommaCountries(List<Country> countries)
+        {
+            //iterate backwards when editing the list or array you are iterating over 
+            /* going forward would skip items as you move to the next item  also want to work backwards when you want to insert or remove*/
+            for (int i = countries.Count-1; i >= 0; i--)
+            {
+                if (countries[i].Name.Contains(','))
+                    countries.RemoveAt(i);
+            }
+
+            //does the same thing as above
+            countries.RemoveAll(x => x.Name.Contains(','));// LINQ can't do this  no designed to modify LINQ is read-only 
+
+            //LINQ can filter the items. 
+
+
+
         }
     }
 }

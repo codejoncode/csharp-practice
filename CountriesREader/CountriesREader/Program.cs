@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CountriesREader
 {
@@ -63,6 +64,74 @@ namespace CountriesREader
             //    Console.WriteLine(ctry.Name);
             //else
             //    Console.WriteLine("There is no country with the code MUS");
+            //Console.WriteLine("Provide the max input to display");
+            //userInput = Console.ReadLine();
+            //bool exists = Int32.TryParse(userInput, out int maxToDisplay);
+            //if (exists)
+            //{
+            //    for (int i = 0; i < countries.Count; i++)
+            //    {
+            //        if ( i > 0 && (i % maxToDisplay == 0))
+            //        {
+            //            Console.WriteLine("Hit return to continue, anything else to quit>");
+            //            if (Console.ReadLine() != "")
+            //            {
+            //                break;
+            //            }
+            //        }
+            //        Country item = countries[i];
+            //        Console.WriteLine($"{PopulationFormatter.FormatPopulation(item.Population).PadLeft(15)}: {item.Name}");
+            //    }
+            //}
+
+            // foreach is read only  only for reading a collection. can't modify in C# 
+            foreach (var item in countries.Values)
+            {
+                //right justifies at 15 characters so they line up nicely  = PadLeft(15)
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(item.Population).PadLeft(15)}: {item.Name}");
+            }
+            Console.WriteLine($"{countries.Count} countries");
+
+            // LINQ is read-only 
+            // LINQ query syntax 
+
+            //List  
+            //foreach(Country country in countries.Take(10))
+            //{
+
+            //} 
+            //foreach(var country in countries.OrderBy(x => x.Name).Take(10))
+            //foreach(var country in countries.Take(10).OrderBy(x => x.Name)) will take 10 then order by alphabetical order. 
+            //The chain queries the data in the collection 
+            // Extension methods from System.Linq.Enumerable 
+            /**
+             * for loop Arrays and lists only   because requires an index 
+             * Linq all collections including dictionaries 
+             
+             */
+            foreach (var item in countries.Values.OrderBy(x => x.Name).Take(10))
+            {
+                //right justifies at 15 characters so they line up nicely  = PadLeft(15)
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(item.Population).PadLeft(15)}: {item.Name}");
+            }
+            // LINQ IS READ ONLY can filter items but not actually remove them
+            foreach (var item in countries.Values.Where(x=> !x.Name.Contains(',')).Take(10))
+            {
+                //right justifies at 15 characters so they line up nicely  = PadLeft(15)
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(item.Population).PadLeft(15)}: {item.Name}");
+            }
+
+            var filteredCountries = countries.Values.Where(x => !x.Name.Contains(','));//now can  for each through.
+            // query syntax
+            var filteredCountries2 = from item in countries.Values
+                                     where !item.Name.Contains(',')
+                                     select item; 
+
+            /**
+             * Complex queries can be more readable 
+             * new syntax to learn 
+             * doesn't support all LINQ features 
+             * **/
         }
     }
 }
