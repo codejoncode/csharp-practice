@@ -13,9 +13,9 @@ namespace CountriesREader
             this._csvFilePath = csvFilePath;
         }
 
-        public List<Country> ReadFirstAllCountries()
+        public Dictionary<string, Country> ReadFirstAllCountries()
         {
-            List<Country> countries = new List<Country>();
+            var countries = new Dictionary<string, Country>();
             // can read text files 
             using (StreamReader sr = new StreamReader(_csvFilePath))// makes sure StreamReader is disposed of when we are done. 
             {
@@ -26,7 +26,8 @@ namespace CountriesREader
                 while ((csvLine = sr.ReadLine()) != null)
                 {
                     // Parse the line to turn it into a Country instance
-                    countries.Add(ReadCountryFromCsvLine(csvLine));
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(country.Code, country);
                 }
             }
 
