@@ -125,13 +125,45 @@ namespace CountriesREader
             // query syntax
             var filteredCountries2 = from item in countries.Values
                                      where !item.Name.Contains(',')
-                                     select item; 
+                                     select item;
 
             /**
              * Complex queries can be more readable 
              * new syntax to learn 
              * doesn't support all LINQ features 
+             * LINQ   Language Integrated Query
+             * very simple code 
+             * only for querying not modifying 
+             * Good for productivity
+             * 
+             * for loop 
+             * very flexible
+             * Only for ordered collections  (no dictionaries) 
+             * Most complex to code 
              * **/
+
+            Dictionary<string, List<Country>> newCountries = reader.ReadAllCountries();
+            foreach (string region in countries.Keys)
+            {
+                Console.Write($"{region} ");
+            }
+
+            Console.WriteLine("Which of the above regions do you want?");
+            string chosenRegion = Console.ReadLine();
+
+            if (countries.ContainsKey(chosenRegion))
+            {
+                foreach(Country country1 in countries[chosenRegion].Take(10))
+                {
+                    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("That is not a valid region");
+            }
+
+            //Jagged Array == Array of arrays. 
         }
     }
 }

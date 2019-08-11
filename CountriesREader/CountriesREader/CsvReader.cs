@@ -35,6 +35,34 @@ namespace CountriesREader
             return countries;
         }
 
+        public Dictionary<string, List<Country>> ReadAllCountries ()
+        {
+            var countries = new Dictionary<string, List<Country>>();
+            using (StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                //read header line 
+                sr.ReadLine();
+                string csvLine;
+                //read the next line;
+                while ((csvLine = sr.ReadLine()) != null)
+                {
+                    // Parse the line to turn it into a Country instance
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    if (countries.ContainsKey(country.Region))
+                    {
+                        countries[country.Region].Add(country);
+                    }
+                    else
+                    {
+                        List<Country> countriesInRegion = new List<Country>() { country };
+                        countries.Add(country.Region, countriesInRegion);
+                    }
+                }
+            }
+
+            return countries;
+        }
+
         public Country ReadCountryFromCsvLine(string csvLine)
         {
             string[] parts = csvLine.Split(',');
