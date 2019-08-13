@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
@@ -6,7 +7,15 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
+            int n = 3;
+            int k = 1;
+            var newList = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                newList.Add(i);
+            }
+            newList.ToArray();
         }
     }
 }

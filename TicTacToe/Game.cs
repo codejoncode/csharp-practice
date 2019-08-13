@@ -13,6 +13,10 @@ namespace TicTacToe
             new Square[3]
         };
 
+        //  private Square[,] _board = new Square[3,3];
+        //^ multi dimensional array  
+        // now  to call it  you have to  us Square[0, 2] instead of Square [0][2] 
+
         public void PlayGame()
         {
             Player player = Player.Crosses;
