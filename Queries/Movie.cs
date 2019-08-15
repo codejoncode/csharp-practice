@@ -6,15 +6,24 @@ namespace Queries
 {
     public class Movie
     {
-        public int Year { get; set; }
+        int _year;
+        public int Year
+        {
+            get
+            {
+                throw new Exception("Error!");
+                Console.WriteLine($"Returning {_year} for {Title}");
+                return _year;
+            }
+            set
+            {
+                _year = value;
+            }
+        }
+        //Automatic get and set 
         public string Title { get; set; }
         public double Rating { get; set; }
 
-        //public Movie(string title, double rating, int year)
-        //{
-        //    Title = title;
-        //    Rating = rating;
-        //    Year = year; 
-        //}
+        
     }
 }
