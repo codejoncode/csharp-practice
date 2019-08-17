@@ -12,8 +12,8 @@ namespace Queries
             get
             {
                 throw new Exception("Error!");
-                Console.WriteLine($"Returning {_year} for {Title}");
-                return _year;
+                //Console.WriteLine($"Returning {_year} for {Title}");
+                //return _year;
             }
             set
             {
