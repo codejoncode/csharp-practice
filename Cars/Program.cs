@@ -26,6 +26,9 @@ namespace Cars
                     car.Combined
                 }; // Manufactuer = car.Manufacturer   each property name will now become a propety name. 
 
+            // same as the query syntax above 
+            var result = cars.Select(c => new { c.Manufacturer, c.Name, c.Combined });// returns objects of  those properties. 
+
             //don't need ascending as it is the default but showing off the keyword. 
             var query2 = cars.Where(c => c.Manufacturer == "BMW" && c.Year == 2016)
                 .OrderByDescending(c => c.Combined)
@@ -47,6 +50,21 @@ namespace Cars
             };
             // anon.Name;  
 
+            //string name = "Scott"
+            //IEnumerable<char> characters = "Scott"
+
+            //SelectMany in Action  flattens a collection of collections into a single collection 
+            var selectMany = cars.Select(c => c.Name)
+                            .OrderBy(c => c);
+
+            foreach (var name in selectMany )
+            {
+                foreach(var character in name)
+                {
+                    Console.WriteLine(character);
+                }
+            }
+
 
             // likely the previous version with filter first  is better for efficiency. 
             var top = cars
@@ -61,7 +79,7 @@ namespace Cars
                  Console.WriteLine(top.Name);// only print if something came back from the query 
             // . Any   . All  returns true once it finds one that is true = Any and  returns once it finds one that doesn't match = All 
             //. Conatins 
-            var result = cars.All(c => c.Manufacturer.Contains("Ford"));
+            //var result = cars.All(c => c.Manufacturer.Contains("Ford"));
             Console.WriteLine(result);
 
             foreach ( var car in query.Take(10))
