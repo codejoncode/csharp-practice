@@ -14,7 +14,8 @@ namespace Cars
 
             var query =
                 from car in cars
-                join manufacturer in manufacturers 
+                    //this is like a inner join in SQL
+                join manufacturer in manufacturers
                     on car.Manufacturer equals manufacturer.Name
                 orderby car.Combined descending, car.Name ascending
                 select new
@@ -23,9 +24,62 @@ namespace Cars
                     car.Name,
                     car.Combined
                 };
-            foreach ( var car in query.Take(10))
+            //method syntax
+            var query2 =
+                //smaller sequence should come first
+                cars.Join(manufacturers,
+                          c => c.Manufacturer,
+                          m => m.Name, (c, m) => new
+                          {
+                              m.Headquarters,
+                              c.Name,
+                              c.Combined
+                          })
+                    .OrderByDescending(c => c.Combined)
+                    .ThenBy(c => c.Name);
+
+            var query3 =
+                //smaller sequence should come first
+                cars.Join(manufacturers,
+                          c => c.Manufacturer,
+                          m => m.Name, (c, m) => new
+                          {
+                              Car = c, 
+                              Manufacturer = m
+                          })
+                    .OrderByDescending(c => c.Car.Combined)
+                    .ThenBy(c => c.Car.Name)
+                    .Select(c => new
+                    {
+                        c.Manufacturer.Headquarters,
+                        c.Car.Name,
+                        c.Car.Combined
+                    });
+            //The above is doing the same thing only it provides a different type of object with 3 properties 
+            /**
+             *Headquarters, Name, Combined
+             * The first part creates properties Car and Manufactuer and assigns the entire object as the properties value.
+             * Then the second one takes only the desired data selects and returns it. 
+             * 
+             */
+
+
+            foreach (var car in query.Take(10))
             {
-                Console.WriteLine($"{car.Name} {car.Headquarters} {car.Combined}");
+                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
+            }
+            Console.WriteLine("\n\n");
+
+            foreach (var car in query2.Take(10))
+            {
+                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
+            }
+
+            Console.WriteLine("\n\n");
+
+            foreach (var car in query2.Take(10))
+            {
+                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
             }
         }
 
@@ -74,7 +128,7 @@ namespace Cars
 
         }
 
-        
+
     }
     /// <summary>
     /// Custom linq method static class and static method 
