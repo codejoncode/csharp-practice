@@ -17,35 +17,63 @@ namespace Cars
 
         private static void QueryXml()
         {
+            var ns = (XNamespace)"http://pluralshight.com/cars/2016";
+            var ex = (XNamespace)"http://pluralshight.com/cars/2016/ex";
             var document = XDocument.Load("fuel.xml");
 
             //document.Element("Cars").Element("Car").Attribute("Manfacturer").Equals()
             //if nothing exists or Attribute doesn't exist it will throw an expection. 
             var query =
-                from element in document.Element("Cars").Elements("Car")
-                where element.Attribute("Manufacturer").Value == "BMW"
+                // from element in document.Descendants(Car)
+                //^same thing as below
+                /**
+                 * so you can query without namspaces but when there is a namespace you have to add the query 
+                 * Make use of the ?. operator to make sure we don't throw an exception. 
+                 * ??  either I get something from the rsult or  Enumerable.Empty<XElement>()  an empty sequence
+                 * these parts of the code keep it from breaking. 
+                 * **/
+
+                from element in document.Element(ns + "Cars")?.Elements(ex + "Car") ?? Enumerable.Empty<XElement>()
+                //?.  allows for  a check of null and it will return null if it is null. so I don't have to worry 
+                // as much if the attribute name entered is correct or there. 
+                //won't throw an exception. 
+                where element.Attribute("Manufacturer")?.Value == "BMW"
                 select element.Attribute("Name").Value;
 
             foreach (var name in query)
             {
                 Console.WriteLine(name);
             }
-        
+            
         }
 
         private static void CreateXml ()
         {
             var records = ProcessCars("fuel.csv");
-
+            //XNamespace ns = "http://pluralshight.com/cars/2016";
+            var ns = (XNamespace)"http://pluralshight.com/cars/2016";
+            /**
+             * name spaces can be different for the XElements than for the actual top level item  just create a new one or
+             * give it the same name  
+             * **/
+            var ex = (XNamespace)"http://pluralshight.com/cars/2016/ex";
             var document = new XDocument();
-            var cars = new XElement("Cars",
+            var cars = new XElement(ns + "Cars",
                 from record in records
-                select new XElement("Car",
+                select new XElement(ex +  "Car",
                                 new XAttribute("Name", record.Name),
                                 new XAttribute("Combined", record.Combined),
                                 new XAttribute("Manufacturer", record.Manufacturer))
                 );
-            document.Add(cars);
+            //< Car Name = "4C" Combined = "28" Manufacturer = "ALFA ROMEO" xmlns = "http://pluralshight.com/cars/2016/ex" />
+
+            //< Car Name = "V12 Vantage S" Comb
+            // this code below will remove the need for the xmlns to show up always prefix it 
+            //
+            cars.Add(new XAttribute(XNamespace.Xmlns + "ex", ex));
+            //< ex:Car Name = "4C" Combined = "28" Manufacturer = "ALFA ROMEO" />
+            // ex now is a prefix for the previous xmlns but makes the code shorter and more condensed and readable. 
+                 document.Add(cars);
             document.Save("fuel.xml");
         }
 
