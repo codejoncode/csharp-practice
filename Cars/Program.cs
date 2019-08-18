@@ -11,76 +11,250 @@ namespace Cars
         {
             var cars = ProcessCars("fuel.csv");
             var manufacturers = ProcessManufacturers("manufacturers.csv");
+            // grouping data
+            //var query =
+            //    from car in cars
+            //    group car by car.Manufacturer.ToUpper()
+            //    //lost car variable  it has been grouped can't use a orderby 
+            //    into manufactuer
+            //    orderby manufactuer.Key
+            //    select manufactuer;
+            //Group join 
+            //var query =
+            //    from manufacturer in manufacturers
+            //    join car in cars on manufacturer.Name
+            //                  equals car.Manufacturer
+            //        ///car is no longer available manufacturer is 
+            //        into carGroup
+            //    orderby manufacturer.Name
+            //    // projection 
+            //    select new
+            //    {
+            //        Manufacturer = manufacturer,
+            //        Cars = carGroup
+            //    };
 
+            //foreach (var group in query)
+            //{
+            //    Console.WriteLine($"{group.Manufacturer.Name} : {group.Manufacturer.Headquarters}");
+            //    foreach (var car in group.Cars.OrderByDescending(c => c.Combined).Take(2))
+            //    {
+            //        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //    }
+            //}
+
+            /**
+             *Want to fix issue where Chevy is listed multiple types because of upper and lower case spellings. 
+             */
+
+
+            //var query2 =
+            //    cars.GroupBy(c => c.Manufacturer.ToUpper())
+            //         .OrderBy(g => g.Key);
+
+            //var query2 =
+            //    manufacturers.GroupJoin(cars, m => m.Name, c => c.Manufacturer, (m, g) =>
+            //         new
+            //         {
+            //             Manufacturer = m,
+            //             Cars = g
+            //         })
+            //    .OrderBy(m => m.Manufacturer.Name);
+
+            //var query3 =
+            //    //manufacturers.GroupJoin(cars, m => m.Name, c => c.Manufacturer, (m, g) =>
+            //    cars.GroupJoin(manufacturers, c => c.Manufacturer, m => m.Name, (g, m) =>
+            //     new
+            //     {
+            //         Manufacturer = m,
+            //         Cars = g
+            //     })
+            //    .OrderBy(g => g.Cars.Name);
+            //// order by country  top 3 cars by efficiency 
+            //var answer =
+            //    from manufacturer in manufacturers
+            //    join car in cars on manufacturer.Name equals car.Manufacturer
+            //        into carGroup
+            //    select new
+            //    {
+            //        Manufacturer = manufacturer,
+            //        Cars = carGroup
+            //    } into result
+            //    group result by result.Manufacturer.Headquarters; 
+
+            //var answer2  =
+            //    manufacturers.GroupJoin(cars, m => m.Name, c => c.Manufacturer, (m, g) =>
+            //         new
+            //         {
+            //             Manufacturer = m,
+            //             Cars = g
+            //         })
+            //    .GroupBy(m => m.Manufacturer.Headquarters);
+
+
+
+            //foreach (var group in answer2)
+            //{
+            //    Console.WriteLine($"{group.Key} : ");
+            //    foreach (var car in group.SelectMany(g => g.Cars)
+            //        .OrderByDescending(c => c.Combined).Take(3))
+            //    {
+            //        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //    }
+            //}
+            // Statistics for each  Manufacturer 
+            //var query =
+            //    from car in cars
+            //    group car by car.Manufacturer into carGroup
+            //    select new
+            //    {
+            //        Name = carGroup.Key,
+            //        Max = carGroup.Max(c => c.Combined),
+            //        Min = carGroup.Min(c => c.Combined),
+            //        Avg = carGroup.Average(c => c.Combined)
+            //    };
+            //this one orders by the max of each manufacturer first then 
             var query =
                 from car in cars
-                    //this is like a inner join in SQL
-                join manufacturer in manufacturers
-                    on car.Manufacturer equals manufacturer.Name
-                orderby car.Combined descending, car.Name ascending
+                group car by car.Manufacturer into carGroup
                 select new
                 {
-                    manufacturer.Headquarters,
-                    car.Name,
-                    car.Combined
-                };
-            //method syntax
-            var query2 =
-                //smaller sequence should come first
-                cars.Join(manufacturers,
-                          c => c.Manufacturer,
-                          m => m.Name, (c, m) => new
-                          {
-                              m.Headquarters,
-                              c.Name,
-                              c.Combined
-                          })
-                    .OrderByDescending(c => c.Combined)
-                    .ThenBy(c => c.Name);
+                    Name = carGroup.Key,
+                    Max = carGroup.Max(c => c.Combined),
+                    Min = carGroup.Min(c => c.Combined),
+                    Avg = carGroup.Average(c => c.Combined)
+                } into result
+                orderby result.Max descending
+                select result;
 
-            var query3 =
-                //smaller sequence should come first
-                cars.Join(manufacturers,
-                          c => c.Manufacturer,
-                          m => m.Name, (c, m) => new
-                          {
-                              Car = c, 
-                              Manufacturer = m
-                          })
-                    .OrderByDescending(c => c.Car.Combined)
-                    .ThenBy(c => c.Car.Name)
-                    .Select(c => new
+            var query2 =
+
+                cars.GroupBy(c => c.Manufacturer)
+                    .Select(g =>
                     {
-                        c.Manufacturer.Headquarters,
-                        c.Car.Name,
-                        c.Car.Combined
-                    });
+                        // accumulator 
+                        var results = g.Aggregate(new CarStatistics(),
+                                                    (acc, c) => acc.Accumulate(c),
+                                                    acc => acc.Compute());
+                        return new
+                        {
+                            Name = g.Key,
+                            Avg = results.Average,
+                            results.Max,
+                            results.Min
+                        };
+                    })
+                    .OrderByDescending(c => c.Max);
+
+
+            foreach (var result in query2)
+            {
+                Console.WriteLine($"{result.Name}");
+                Console.WriteLine($"\t Max: {result.Max}");
+                Console.WriteLine($"\t Min: {result.Min}");
+                Console.WriteLine($"\t Avg: {result.Avg}");
+            }
+
+            //foreach (var group in query)
+            //{
+            //    Console.WriteLine($"{group.Manufacturer.Name} : {group.Manufacturer.Headquarters}");
+            //    foreach (var car in group.Cars.OrderByDescending(c => c.Combined).Take(2))
+            //    {
+            //        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //    }
+            //}
+            //foreach (var group in query2)
+            //{
+            //    Console.WriteLine(group.Key);
+            //    foreach (var car in group.OrderByDescending(c => c.Combined).Take(2))
+            //    {
+            //        Console.WriteLine($"\t{car.Name} : {car.Combined}");
+            //    }
+            //}
+            //var query =
+            //    from car in cars
+            //        //this is like a inner join in SQL
+            //    join manufacturer in manufacturers
+            //        on car.Manufacturer equals manufacturer.Name
+            //    orderby car.Combined descending, car.Name ascending
+            //    select new
+            //    {
+            //        manufacturer.Headquarters,
+            //        car.Name,
+            //        car.Combined
+            //    };
+
+            //var query2 =
+            //    from car in cars
+            //    join manufacturer in manufacturers
+            //        on new { car.Manufacturer, car.Year }
+            //           equals
+            //           new { Manufacturer = manufacturer.Name, manufacturer.Year }
+            //    orderby car.Combined descending, car.Name ascending
+            //    select new
+            //    {
+            //        manufacturer.Headquarters,
+            //        car.Name,
+            //        car.Combined
+            //    };
+
+            ////method syntax
+            //var query3 =
+            //    //smaller sequence should come first
+            //    cars.Join(manufacturers,
+            //              c => c.Manufacturer,
+            //              m => m.Name, (c, m) => new
+            //              {
+            //                  m.Headquarters,
+            //                  c.Name,
+            //                  c.Combined
+            //              })
+            //        .OrderByDescending(c => c.Combined)
+            //        .ThenBy(c => c.Name);
+
+            //var query4 =
+            //    //smaller sequence should come first
+            //    cars.Join(manufacturers,
+            //              c => c.Manufacturer,
+            //              m => m.Name, (c, m) => new
+            //              {
+            //                  Car = c, 
+            //                  Manufacturer = m
+            //              })
+            //        .OrderByDescending(c => c.Car.Combined)
+            //        .ThenBy(c => c.Car.Name)
+            //        .Select(c => new
+            //        {
+            //            c.Manufacturer.Headquarters,
+            //            c.Car.Name,
+            //            c.Car.Combined
+            //        });
             //The above is doing the same thing only it provides a different type of object with 3 properties 
             /**
              *Headquarters, Name, Combined
              * The first part creates properties Car and Manufactuer and assigns the entire object as the properties value.
              * Then the second one takes only the desired data selects and returns it. 
-             * 
+             * The first one is more efficient than the second. 
              */
 
 
-            foreach (var car in query.Take(10))
-            {
-                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
-            }
-            Console.WriteLine("\n\n");
+            //foreach (var car in query.Take(10))
+            //{
+            //    Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
+            //}
+            //Console.WriteLine("\n\n");
 
-            foreach (var car in query2.Take(10))
-            {
-                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
-            }
+            //foreach (var car in query2.Take(10))
+            //{
+            //    Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
+            //}
 
-            Console.WriteLine("\n\n");
+            //Console.WriteLine("\n\n");
 
-            foreach (var car in query2.Take(10))
-            {
-                Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
-            }
+            //foreach (var car in query2.Take(10))
+            //{
+            //    Console.WriteLine($"{car.Headquarters} {car.Name} {car.Combined}");
+            //}
         }
 
         private static List<Manfacturer> ProcessManufacturers(string path)
@@ -129,6 +303,36 @@ namespace Cars
         }
 
 
+    }
+    public class CarStatistics
+    {
+        public int Max { get; set; }
+        public int Min { get; set; }
+        public double Average { get; set; }
+        public int Total { get; set; }
+        public int Count { get; set; }
+
+        public CarStatistics()
+        {
+            Max = Int32.MinValue;
+            Min = Int32.MaxValue;
+        }
+        public CarStatistics Accumulate(Car car)
+        {
+            Total += car.Combined;
+            Count += 1;
+            Max = Math.Max(Max, car.Combined);
+            Min = Math.Min(Min, car.Combined);
+             
+
+            return this;
+        }
+
+        public CarStatistics Compute()
+        {
+            Average = Total / Count; 
+            return this;
+        }
     }
     /// <summary>
     /// Custom linq method static class and static method 
