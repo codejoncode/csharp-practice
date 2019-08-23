@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using WithEnitity;
@@ -18,6 +19,10 @@ namespace Cars
             //^^^^  just for this demo
             InsertData();
             QueryData();
+            Func<int, int> squre = x => x * x;
+            Expression<Func<int, int, int>> add = (x, y) => x + y;
+            Console.WriteLine(add); // will actually output the code that was written. 
+
         }
 
         private static void QueryData()
@@ -28,16 +33,79 @@ namespace Cars
             var query = from car in db.Cars
                         orderby car.Combined descending, car.Name ascending
                         select car;
-            foreach(var car in query.Take(10))
-            {
-                Console.WriteLine($"{car.Name}: {car.Combined}");
-            }
+            //foreach(var car in query.Take(10))
+            //{
+            //    Console.WriteLine($"{car.Name}: {car.Combined}");
+            //}
             Console.WriteLine("\n");
             var query2 = db.Cars.OrderByDescending(c => c.Combined).ThenBy(c => c.Name).Take(10);
-            foreach (var car in query2)
+            //foreach (var car in query2)
+            //{
+            //    Console.WriteLine($"{car.Name}: {car.Combined}");
+            //}
+            // IQueryable does not have to execute code in memory  
+            db.Database.Log = Console.WriteLine;
+            var query3 =
+                db.Cars.Where(c => c.Manufacturer == "BMW")
+                       .OrderByDescending(c => c.Combined)
+                       .ThenBy(c => c.Name)
+                       .Take(10)
+                       //.Select(c => new {  Name = c.Name.ToUpper() })
+                       .ToList();
+
+
+
+            Console.WriteLine(query3.Count());
+            Func<int, int> square = x => x * x;
+            Expression<Func<int, int, int>> add = (x, y) => x + y; // will only be a string 
+            var result = add.Compile()(3, 5);// this code allows me to run the code held by the expression
+                                             //strips away the expression 
+
+            // could also do this 
+            Func<int, int, int> addI = add.Compile();
+
+            result = addI(3, 5);
+
+            
+
+
+
+
+            foreach (var car in query3)
             {
                 Console.WriteLine($"{car.Name}: {car.Combined}");
             }
+
+
+            var query4 =
+                db.Cars.GroupBy(c => c.Manufacturer)
+                  .Select(g => new
+                  {
+                      Name = g.Key,
+                      Cars = g.OrderByDescending(c => c.Combined).Take(2)
+                  });
+            foreach (var group in query4)
+            {
+                Console.WriteLine(group.Name);
+                foreach (var car in group.Cars)
+                {
+                    Console.WriteLine($"\t{car.Name} : {car.Combined}");
+                }
+            }
+
+            //same above  below in query syntax 
+            var query5 =
+                from car in db.Cars
+                group car by car.Manufacturer into manufacturer
+                //lose access to car variable 
+                select new
+                {
+                    Name = manufacturer.Key,
+                    //Cars = manufacturer.OrderByDescending(c => c.Combined).Take(2)
+                    Cars = (from car in manufacturer
+                            orderby car.Combined descending
+                            select car).Take(2)
+                };
         }
 
         private static void InsertData()
